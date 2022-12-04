@@ -1,6 +1,22 @@
 # Hackathon_backend
 
+#Features
+- [x] Signup
+- [x] Login
+- [x] Add Basic Info
+- [x] Get Basic Info
+- [x] Update Basic Info
+- [ ] Add Measurements
+- [ ] Get Measurements
+- [ ] Update Measurements
+- [ ] Add Visits
+- [ ] Update Visits
+- [ ] Generate Health Card
+
+
 api endpoints
+
+# Auth
 
 signUp : POST
 https://hackathonbackend-production.up.railway.app/api/v1/user/SignUp/
@@ -48,3 +64,108 @@ Response
     "message": "Success"
 }
 ```
+
+----
+
+# Basic Info
+
+Add users Basic Info : POST https://hackathonbackend-production.up.railway.app/api/v1/user/basicInfo/
+```json
+Request 
+Auth type : Breare token (JWT)
+{
+    "age":21,
+    "height":"5'12",
+    "sex":"M",
+    "blood_group":"A+",
+    "weight":72,
+    "allergies":["pollen","rubber"]
+}
+
+Response
+
+{
+    "data": {
+        "basic_id": "e212783e-ccd0-4a37-8c48-7117f3372f12",
+        "user_id": "0f47607c-a818-404d-9b30-4a633c8318cb",
+        "age": 21,
+        "height": "5'12",
+        "sex": "M",
+        "blood_group": "A+",
+        "weight": 72,
+        "allergies": [
+            "pollen",
+            "rubber"
+        ]
+    },
+    "internal_response_code": 0,
+    "message": "Success"
+}
+```
+
+Get users Basic Info : Get https://hackathonbackend-production.up.railway.app/api/v1/user/basicInfo/
+```json
+Auth type : Breare token (JWT)
+
+Response
+{
+    "data": {
+        "basic_id": "e212783e-ccd0-4a37-8c48-7117f3372f12",
+        "user_id": "0f47607c-a818-404d-9b30-4a633c8318cb",
+        "age": 21,
+        "height": "5'12",
+        "sex": "M",
+        "blood_group": "A+",
+        "weight": 72,
+        "allergies": [
+            "pollen",
+            "rubber"
+        ]
+    },
+    "internal_response_code": 0,
+    "message": "Success"
+}
+```
+
+
+Edit users Basic Info : PUT https://hackathonbackend-production.up.railway.app/api/v1/user/basicInfo/
+```json
+Request 
+Auth type : Breare token (JWT)
+//Chages
+{
+    "age":21,
+    "height":"5'12",
+    "sex":"M",
+    "blood_group":"A+",
+    "weight":72,
+    "allergies":["pollen","rubber","Peanuts","sugar"]
+}
+
+Response
+
+{
+    "data": {
+        "basic_id": "e212783e-ccd0-4a37-8c48-7117f3372f12",
+        "user_id": "0f47607c-a818-404d-9b30-4a633c8318cb",
+        "age": 21,
+        "height": "5'12",
+        "sex": "M",
+        "blood_group": "A+",
+        "weight": 72,
+        "allergies": [
+            "pollen",
+            "rubber",
+            "Peanuts",
+            "sugar"
+        ]
+    },
+    "internal_response_code": 0,
+    "message": "Success"
+}
+```
+
+----
+
+
+
