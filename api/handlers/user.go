@@ -38,3 +38,16 @@ func UpdateBasicInfo(c *gin.Context) {
 	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
 	c.JSON(statusCode, data)
 }
+
+func AddMeasurement(c *gin.Context) {
+	res, err := user.AddMeasurement(c)
+	fmt.Printf("Err %v\n", err)
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}
+
+func GetMeasurementByType(c *gin.Context) {
+	res, err := user.GetMeasurement(c)
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}

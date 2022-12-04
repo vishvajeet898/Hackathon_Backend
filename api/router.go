@@ -23,6 +23,8 @@ func InitRouter() *gin.Engine {
 			users_api.POST("/basicInfo", middleware.TokenAuthMiddleware(), handler.AddBasicInfo)
 			users_api.GET("/basicInfo", middleware.TokenAuthMiddleware(), handler.GetBasicInfo)
 			users_api.PUT("/basicInfo", middleware.TokenAuthMiddleware(), handler.UpdateBasicInfo)
+			users_api.POST("/measurement", middleware.TokenAuthMiddleware(), handler.AddMeasurement)
+			users_api.GET("/measurement/:type", middleware.TokenAuthMiddleware(), handler.GetMeasurementByType)
 		}
 
 	}
