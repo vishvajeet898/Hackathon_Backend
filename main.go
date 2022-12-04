@@ -7,7 +7,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
-
 	"os"
 )
 
@@ -16,7 +15,6 @@ func main() {
 	if err != nil {
 		return
 	}
-	//	DB_URL := os.Getenv("DATABASE_URL")
 	dbUrl := os.Getenv("DB_URL")
 	dbName := os.Getenv("DB_NAME")
 	dbPassword := os.Getenv("DB_PASSWORD")
@@ -26,10 +24,11 @@ func main() {
 	db := repository.NewDatabse(dialector)
 	db.Connect()
 
-	/*cache2.NewRedisCache("localhost:6379", 0, 10)*/
-
 	port := fmt.Sprintf(":%s", os.Getenv("PORT"))
 	routersInit := api.InitRouter()
 	gin.SetMode(gin.DebugMode)
 	routersInit.Run(port)
+
+	/*	utils.Decrypt()
+	 */
 }

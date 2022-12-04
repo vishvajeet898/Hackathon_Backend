@@ -13,13 +13,12 @@ import (
 type CustomClaims struct {
 	UserId   string `json:"userId"`
 	UserType string `json:"userType"`
-
 	jwt.StandardClaims
 }
 
-func TokenAuthMiddleware(scope string) gin.HandlerFunc {
+func TokenAuthMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		err := TokenValid(scope, c)
+		err := TokenValid(c)
 		if err != nil {
 			c.JSON(http.StatusUnauthorized, err.Error())
 			c.Abort()
@@ -29,7 +28,7 @@ func TokenAuthMiddleware(scope string) gin.HandlerFunc {
 	}
 }
 
-func TokenValid(api_scope string, c *gin.Context) error {
+func TokenValid(c *gin.Context) error {
 	r := c.Request
 	token, err := VerifyToken(r)
 	if err != nil {
@@ -40,21 +39,22 @@ func TokenValid(api_scope string, c *gin.Context) error {
 	}
 
 	claims := token.Claims.(jwt.MapClaims)
-	scopes, ok := claims["scopes"].([]interface{})
-	if !ok {
-		return fmt.Errorf("not Enough Permission")
-	}
+	/*	scopes, ok := claims["scopes"].([]interface{})
+		if !ok {
+			return fmt.Errorf("not Enough Permission")
+		}*/
 
 	// Setting Username to the context
 	c.Set("userId", claims["userId"])
+	return nil
 
-	for _, role := range scopes {
+	/*	for _, role := range scopes {
 		if role == api_scope {
 			return nil
 		}
-	}
+	}*/
 
-	return fmt.Errorf("Not Enough Permission")
+	/*return fmt.Errorf("Not Enough Permission")*/
 }
 
 func VerifyToken(r *http.Request) (*jwt.Token, error) {
