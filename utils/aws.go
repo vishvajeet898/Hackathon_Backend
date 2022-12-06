@@ -102,3 +102,12 @@ func IsFilePresent(filename string) bool {
 	}
 	return false
 }
+
+func DeleteFiles(path string) error {
+
+	err := os.Remove(path)
+	if err != nil {
+		return err
+	}
+	return nil
+}

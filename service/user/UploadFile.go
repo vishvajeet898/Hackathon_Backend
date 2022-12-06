@@ -29,26 +29,26 @@ func UploadFile(c *gin.Context) (interface{}, error) {
 	extension := filepath.Ext(file.Filename)
 	newFileName := uuid.New().String()
 
-	if err := c.SaveUploadedFile(file, "/recordsTemp/upload/"+newFileName+extension); err != nil {
+	if err := c.SaveUploadedFile(file, "./recordsTemp/upload/"+newFileName+extension); err != nil {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
 			"message": "Unable to save the file",
 		})
 		return nil, err
 	}
 
-	err = utils.Encrypt("/recordsTemp/upload/"+newFileName+extension, newFileName)
+	err = utils.Encrypt("./recordsTemp/upload/"+newFileName+extension, newFileName)
 	if err != nil {
 		return nil, err
 	}
-	err = utils.AwsFileUpload("/recordsTemp/upload/"+newFileName+".bin", newFileName)
+	err = utils.AwsFileUpload("./recordsTemp/upload/"+newFileName+".bin", newFileName)
 	if err != nil {
 		return nil, err
 	}
 
-	record := model.Record{
-		UserId:   userId,
-		AwsLink:  newFileName,
-		RecordId: uuid.New().String(),
+	record := model.Aws_File{
+		UserId:  userId,
+		AwsLink: newFileName,
+		FileId:  uuid.New().String(),
 	}
 
 	if err := validator.New().Struct(record); err != nil {
@@ -59,6 +59,15 @@ func UploadFile(c *gin.Context) (interface{}, error) {
 		return nil, err
 	}
 
+	err = utils.DeleteFiles("./recordsTemp/upload/" + newFileName + extension)
+	if err != nil {
+		return nil, err
+	}
+	err = utils.DeleteFiles("./recordsTemp/upload/" + newFileName + ".bin")
+	if err != nil {
+		return nil, err
+	}
 	return res, nil
-
+	/*	return "Your file has been successfully uploaded.", nil
+	 */
 }

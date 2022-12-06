@@ -60,6 +60,7 @@ func GetAllMeasurementByDate(c *gin.Context) {
 
 func UploadFile(c *gin.Context) {
 	res, err := user.UploadFile(c)
+	fmt.Printf("Err %v\n", err)
 	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
 	c.JSON(statusCode, data)
 }
