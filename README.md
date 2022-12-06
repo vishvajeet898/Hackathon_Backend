@@ -120,6 +120,10 @@ Response
         "allergies": [
             "pollen",
             "rubber"
+        ],
+        "diseases": [
+            "ED",
+            "Insomania"
         ]
     },
     "internal_response_code": 0,
@@ -242,4 +246,81 @@ Response
 }
 ```
 
+
+Get All of user's Measurement from date to curr date (Temp, glucose) : GET https://hackathonbackend-production.up.railway.app/api/v1/user/allMeasurement/2022-12-05
+```json
+Request 
+Auth type : Breare token (JWT)
+Response
+{
+    "data": {
+        "Results": [
+            {
+                "measurement_id": "e435b1ad-0b65-4ee0-b944-f6975b3e1fc8",
+                "user_id": "94d3bb8e-24ac-4bea-9279-4f1beae5ca55",
+                "type": "Temperature",
+                "x_value": "31",
+                "y_value": "",
+                "name": "Temperature",
+                "created_at": "2022-12-06T19:12:53.66439Z",
+                "taken_by": "Self"
+            },
+            {
+                "measurement_id": "8bfea080-ceb0-446b-a231-622a0a4186cc",
+                "user_id": "94d3bb8e-24ac-4bea-9279-4f1beae5ca55",
+                "type": "Temperature",
+                "x_value": "21",
+                "y_value": "",
+                "name": "Temperature",
+                "created_at": "2022-12-06T19:13:02.067682Z",
+                "taken_by": "Self"
+            },
+            {
+                "measurement_id": "40d299ae-90fb-40a3-a486-482aef9b4f1d",
+                "user_id": "94d3bb8e-24ac-4bea-9279-4f1beae5ca55",
+                "type": "Temperature",
+                "x_value": "51",
+                "y_value": "",
+                "name": "Temperature",
+                "created_at": "2022-12-06T19:13:05.57253Z",
+                "taken_by": "Self"
+            },
+            {
+                "measurement_id": "964c23e9-0abf-4f7e-a310-adbff51040a9",
+                "user_id": "94d3bb8e-24ac-4bea-9279-4f1beae5ca55",
+                "type": "Gluco",
+                "x_value": "12",
+                "y_value": "",
+                "name": "Glucose",
+                "created_at": "2022-12-06T19:13:19.215627Z",
+                "taken_by": "Self"
+            },
+            {
+                "measurement_id": "343c8c9b-17ca-487e-9651-7cc8aedb0285",
+                "user_id": "94d3bb8e-24ac-4bea-9279-4f1beae5ca55",
+                "type": "Gluco",
+                "x_value": "122",
+                "y_value": "",
+                "name": "Glucose",
+                "created_at": "2022-12-06T19:13:22.091894Z",
+                "taken_by": "Self"
+            },
+            {
+                "measurement_id": "f99f328d-8d96-48ec-9581-208530331ac1",
+                "user_id": "94d3bb8e-24ac-4bea-9279-4f1beae5ca55",
+                "type": "Gluco",
+                "x_value": "52",
+                "y_value": "",
+                "name": "Glucose",
+                "created_at": "2022-12-06T19:13:28.225408Z",
+                "taken_by": "Self"
+            }
+        ],
+        "Page": 1,
+        "Limit": 100
+    },
+    "internal_response_code": 0,
+    "message": "Success"
+}
+```
 
