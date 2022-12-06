@@ -27,6 +27,7 @@ func InitRouter() *gin.Engine {
 			users_api.GET("/measurement/:type", middleware.TokenAuthMiddleware(), handler.GetMeasurementByType)
 			users_api.GET("/allMeasurement/:date", middleware.TokenAuthMiddleware(), handler.GetAllMeasurementByDate)
 			users_api.POST("/upload", middleware.TokenAuthMiddleware(), handler.UploadFile)
+			users_api.POST("/visit", middleware.TokenAuthMiddleware(), handler.AddVisit)
 		}
 
 	}

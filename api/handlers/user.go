@@ -64,3 +64,11 @@ func UploadFile(c *gin.Context) {
 	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
 	c.JSON(statusCode, data)
 }
+
+func AddVisit(c *gin.Context) {
+	res, err := user.AddVisit(c)
+	fmt.Printf("Err %v\n", err)
+
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}
