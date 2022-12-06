@@ -8,7 +8,8 @@
 - [x] Update Basic Info
 - [x] Add Measurements
 - [x] Get Measurements
-- [ ] Update Measurements
+- [x] Get All Measurements with date
+- [x] Upload File
 - [ ] Add Visits
 - [ ] Update Visits
 - [ ] Generate Health Card
@@ -323,4 +324,29 @@ Response
     "message": "Success"
 }
 ```
+
+
+----
+
+# File Upload - Download
+Upload File : GET https://hackathonbackend-production.up.railway.app/api/v1/user/upload
+
+Request : form-data</br>
+key = file  
+value = file to be uploaded
+
+ response
+```json
+{
+    "data": {
+        "file_id": "838e57d6-04be-47db-941c-f9801efc879e",
+        "user_id": "0f47607c-a818-404d-9b30-4a633c8318cb",
+        "aws_link": "45eafc0a-de09-432c-9d7b-a69ec64a0e9f",
+        "created_at": "2022-12-07T01:08:31.741059372+05:30"
+    },
+    "internal_response_code": 0,
+    "message": "Success"
+}
+```
+
 
