@@ -6,8 +6,8 @@
 - [x] Add Basic Info
 - [x] Get Basic Info
 - [x] Update Basic Info
-- [ ] Add Measurements
-- [ ] Get Measurements
+- [x] Add Measurements
+- [x] Get Measurements
 - [ ] Update Measurements
 - [ ] Add Visits
 - [ ] Update Visits
@@ -167,5 +167,79 @@ Response
 
 ----
 
+# Measurements
+
+
+Add user's Measurement(Temp, glucose) : POST https://hackathonbackend-production.up.railway.app/api/v1/user/measurement
+```json
+Request 
+Auth type : Breare token (JWT)
+{
+    "type" : "Temperature",
+    "x_value" : "31",
+    "y_value" : "",
+    "name" :"Temperature",
+    "taken_by" :"Self"
+}
+```
+
+
+Get user's Measurement(Temp, glucose) : GET https://hackathonbackend-production.up.railway.app/api/v1/user/measurement
+```json
+Request 
+Auth type : Breare token (JWT)
+Response
+
+{
+    "data": {
+        "Results": [
+            {
+                "measurement_id": "faf0da34-f099-4624-9b25-9ca22987631a",
+                "user_id": "0f47607c-a818-404d-9b30-4a633c8318cb",
+                "type": "Temperature",
+                "x_value": "32",
+                "y_value": "",
+                "name": "Temperature",
+                "created_at": "2022-12-05T02:29:13.696988+05:30",
+                "taken_by": "Self"
+            },
+            {
+                "measurement_id": "5e0dc58a-4161-49a2-971a-c17de6cf11a8",
+                "user_id": "0f47607c-a818-404d-9b30-4a633c8318cb",
+                "type": "Temperature",
+                "x_value": "48",
+                "y_value": "",
+                "name": "Temperature",
+                "created_at": "2022-12-05T02:29:37.738282+05:30",
+                "taken_by": "Self"
+            },
+            {
+                "measurement_id": "2cc91f4d-1e2a-41e7-9e34-afc9237fcfee",
+                "user_id": "0f47607c-a818-404d-9b30-4a633c8318cb",
+                "type": "Temperature",
+                "x_value": "52",
+                "y_value": "",
+                "name": "Temperature",
+                "created_at": "2022-12-05T02:29:44.1121+05:30",
+                "taken_by": "Self"
+            },
+            {
+                "measurement_id": "ff374801-fbdd-438d-ac9b-2d7fb47aa825",
+                "user_id": "0f47607c-a818-404d-9b30-4a633c8318cb",
+                "type": "Temperature",
+                "x_value": "31",
+                "y_value": "",
+                "name": "Temperature",
+                "created_at": "2022-12-05T02:29:54.434255+05:30",
+                "taken_by": "Self"
+            }
+        ],
+        "Page": 1,
+        "Limit": 20
+    },
+    "internal_response_code": 0,
+    "message": "Success"
+}
+```
 
 
