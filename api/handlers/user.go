@@ -51,3 +51,15 @@ func GetMeasurementByType(c *gin.Context) {
 	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
 	c.JSON(statusCode, data)
 }
+
+func GetAllMeasurementByDate(c *gin.Context) {
+	res, err := user.GetAllMeasurement(c)
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}
+
+func UploadFile(c *gin.Context) {
+	res, err := user.UploadFile(c)
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}

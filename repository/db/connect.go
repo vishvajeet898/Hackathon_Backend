@@ -1,6 +1,9 @@
 package repository
 
-import "gorm.io/gorm"
+import (
+	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
+)
 
 var DB *gorm.DB
 
@@ -17,7 +20,7 @@ func NewDatabse(dialector gorm.Dialector) *Database {
 
 func (d *Database) Connect() {
 
-	db, err := gorm.Open(d.dialector, &gorm.Config{})
+	db, err := gorm.Open(d.dialector, &gorm.Config{Logger: logger.Default.LogMode(logger.Info)})
 	if err != nil {
 		panic(err)
 	}

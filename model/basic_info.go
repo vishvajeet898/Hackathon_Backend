@@ -11,4 +11,5 @@ type Basic_Info struct {
 	BloodGroup string         `json:"blood_group" gorm:"column:blood_group"`
 	Weight     int            `json:"weight" gorm:"column:weight"`
 	Allergies  pq.StringArray `json:"allergies" gorm:"type:text[]" gorm:"column:allergies"`
+	Diseases   pq.StringArray `json:"diseases" gorm:"type:text[]" gorm:"column:diseases"`
 }

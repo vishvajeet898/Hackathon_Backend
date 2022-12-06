@@ -4,9 +4,11 @@ import (
 	"Hackathon_Backend/api"
 	repository "Hackathon_Backend/repository/db"
 	"fmt"
+	_ "github.com/aws/aws-sdk-go-v2/config"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
+	_ "log"
 	"os"
 )
 
@@ -29,6 +31,15 @@ func main() {
 	gin.SetMode(gin.DebugMode)
 	routersInit.Run(port)
 
-	/*	utils.Decrypt()
-	 */
+	/*	utils.Encrypt("./test.pdf", "test")
+		utils.AwsFileUpload("./recordsTemp/upload/test.bin", "test.bin")
+
+		cfg, err := config.LoadDefaultConfig(context.TODO())
+		if err != nil {
+			log.Printf("error: %v", err)
+			return
+		}
+
+		utils.S3FileDownloader(cfg, "healthmate", "ciphertext")
+	*/
 }
