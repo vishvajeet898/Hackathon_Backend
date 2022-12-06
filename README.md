@@ -10,7 +10,8 @@
 - [x] Get Measurements
 - [x] Get All Measurements with date
 - [x] Upload File
-- [ ] Add Visits
+- [ ] Download File
+- [x] Add Visits
 - [ ] Update Visits
 - [ ] Generate Health Card
 
@@ -329,7 +330,7 @@ Response
 ----
 
 # File Upload - Download
-Upload File : GET https://hackathonbackend-production.up.railway.app/api/v1/user/upload
+Upload File : POST https://hackathonbackend-production.up.railway.app/api/v1/user/upload
 
 Request : form-data</br>
 key = file  
@@ -349,4 +350,46 @@ value = file to be uploaded
 }
 ```
 
+---
+#Visits
+Create Visit of User : POST https://hackathonbackend-production.up.railway.app/api/v1/user/visit
+```json
+Request 
+Auth type : Breare token (JWT)
+{
+    "doctor":"Dr. XYZ",
+    "hospital" :"Sakra",
+    "type" : "Head",
+    "comment" : "Had a sever headache",
+    "drugs" : ["Dolo-650","Azze"],
+    "reports" : ["aws_link-what-you-get-on-upload"],
+    "scan_files" : ["aws_link-what-you-get-on-upload"]
 
+}
+
+response
+
+{
+    "data": {
+        "visit_id": "edcfe2f3-367c-4d90-88c2-c7c76ce5c981",
+        "user_id": "94d3bb8e-24ac-4bea-9279-4f1beae5ca55",
+        "doctor": "Dr. XYZ",
+        "hospital": "Sakra",
+        "timestamp": "0001-01-01T00:00:00Z",
+        "type": "Head",
+        "comment": "Had a sever headache",
+        "drugs": [
+            "Dolo-650",
+            "Azze"
+        ],
+        "reports": [
+            "aws_link-what-you-get-on-upload"
+        ],
+        "scan_files": [
+            "aws_link-what-you-get-on-upload"
+        ]
+    },
+    "internal_response_code": 0,
+    "message": "Success"
+}
+```
