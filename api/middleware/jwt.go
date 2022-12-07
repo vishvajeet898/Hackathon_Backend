@@ -89,7 +89,7 @@ func GenerateToken(userId string, userType string, scope []string) (string, erro
 		userType,
 		/*		scope,
 		 */jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(40 * time.Minute).Unix(),
+			ExpiresAt: time.Now().Add(48 * time.Hour).Unix(),
 		},
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
