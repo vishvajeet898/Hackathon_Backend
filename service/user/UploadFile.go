@@ -46,9 +46,10 @@ func UploadFile(c *gin.Context) (interface{}, error) {
 	}
 
 	record := model.Aws_File{
-		UserId:  userId,
-		AwsLink: newFileName,
-		FileId:  uuid.New().String(),
+		UserId:    userId,
+		AwsLink:   newFileName,
+		FileId:    uuid.New().String(),
+		Extension: extension,
 	}
 
 	if err := validator.New().Struct(record); err != nil {

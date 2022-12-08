@@ -66,10 +66,10 @@ func Encrypt(path string, name string) error {
 	return nil
 }
 
-func Decrypt() {
-	infile, err := os.Open("ciphertext.bin")
+func Decrypt(path string, name string) error {
+	infile, err := os.Open(path)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	defer infile.Close()
 
@@ -77,30 +77,30 @@ func Decrypt() {
 	// 32 bytes (AES-256)
 	key, err := ioutil.ReadFile("key")
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	block, err := aes.NewCipher(key)
 	if err != nil {
-		log.Panic(err)
+		return err
 	}
 
 	// Never use more than 2^32 random nonces with a given key
 	// because of the risk of repeat.
 	fi, err := infile.Stat()
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	iv := make([]byte, block.BlockSize())
 	msgLen := fi.Size() - int64(len(iv))
 	_, err = infile.ReadAt(iv, msgLen)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
-	outfile, err := os.OpenFile("dc.pdf", os.O_RDWR|os.O_CREATE, 0777)
+	outfile, err := os.OpenFile("./recordsTemp/download/"+name, os.O_RDWR|os.O_CREATE, 0777)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 	defer outfile.Close()
 
@@ -129,4 +129,5 @@ func Decrypt() {
 			break
 		}
 	}
+	return nil
 }

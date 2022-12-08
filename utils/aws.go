@@ -43,7 +43,14 @@ func AwsFileUpload(path string, fileName string) error {
 	return nil
 }
 
-func S3FileDownloader(cfg aws.Config, bucket string, fileNames ...string) error {
+func S3FileDownloader(fileNames ...string) error {
+
+	bucket := "healthmate"
+	cfg, err := config.LoadDefaultConfig(context.TODO())
+	if err != nil {
+		log.Printf("error: %v", err)
+		return err
+	}
 
 	var wg sync.WaitGroup
 
