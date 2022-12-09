@@ -470,6 +470,11 @@ response
 }
 ```
 
+
+Get All VISITS GET: https://hackathonbackend-production.up.railway.app/api/v1/user/allVisit
+
+
+
 ---
 
 # Health Insurance
@@ -501,6 +506,20 @@ Auth type : Breare token (JWT)
 Get All donations done by user  : GET https://hackathonbackend-production.up.railway.app/api/v1/user/getAllDonationsUser
 
 Get All donations   : GET https://hackathonbackend-production.up.railway.app/api/v1/user/getAllDonations
+
+
+---
+
+# Share Profile
+
+Hare user profile  : GET https://hackathonbackend-production.up.railway.app/api/v1/user/share
+
+
+Verify( ALL PUBLIC PROFILE) GET: https://hackathonbackend-production.up.railway.app/api/v1/user/share/verify/27ea
+type sensitive code
+
+
+
 
 
 
