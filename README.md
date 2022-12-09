@@ -77,11 +77,14 @@ Request
 Auth type : Breare token (JWT)
 {
     "age":21,
-    "height":"5'12",
+    "height":190,
     "sex":"M",
     "blood_group":"A+",
     "weight":72,
-    "allergies":["pollen","rubber"]
+    "allergies":["pollen","rubber"],
+    "diseases":["ED","Insomania"],
+    "pregnant":false,
+    "insulin" : 23
 }
 
 Response
@@ -112,10 +115,10 @@ Auth type : Breare token (JWT)
 Response
 {
     "data": {
-        "basic_id": "e212783e-ccd0-4a37-8c48-7117f3372f12",
-        "user_id": "0f47607c-a818-404d-9b30-4a633c8318cb",
+        "basic_id": "6dfc9fe8-0d1a-4166-a287-7cce7fb75fc6",
+        "user_id": "8d8ff9e8-79f7-40e2-8b96-adc87cf566d2",
         "age": 21,
-        "height": "5'12",
+        "height": 190,
         "sex": "M",
         "blood_group": "A+",
         "weight": 72,
@@ -126,7 +129,10 @@ Response
         "diseases": [
             "ED",
             "Insomania"
-        ]
+        ],
+        "pregnant": false,
+        "bmi": 0,
+        "insulin": 23
     },
     "internal_response_code": 0,
     "message": "Success"
