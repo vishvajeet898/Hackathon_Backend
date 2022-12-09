@@ -138,3 +138,8 @@ func GetAllDonationsByUser(c *gin.Context) {
 	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
 	c.JSON(statusCode, data)
 }
+func ShareVerify(c *gin.Context) {
+	res, err := user.ShareVerify(c)
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}
