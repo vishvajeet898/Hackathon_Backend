@@ -521,6 +521,35 @@ type sensitive code
 
 
 
+ALL API ENDPOINTS
+```json
+[GIN-debug] POST   /api/v1/user/SignUp       --> Hackathon_Backend/api/handlers.SignUp (3 handlers)
+[GIN-debug] POST   /api/v1/user/login        --> Hackathon_Backend/api/handlers.SignIn (3 handlers)
+[GIN-debug] POST   /api/v1/user/basicInfo    --> Hackathon_Backend/api/handlers.AddBasicInfo (4 handlers)
+[GIN-debug] GET    /api/v1/user/basicInfo    --> Hackathon_Backend/api/handlers.GetBasicInfo (4 handlers)
+[GIN-debug] PUT    /api/v1/user/basicInfo    --> Hackathon_Backend/api/handlers.UpdateBasicInfo (4 handlers)
+[GIN-debug] POST   /api/v1/user/measurement  --> Hackathon_Backend/api/handlers.AddMeasurement (4 handlers)
+[GIN-debug] GET    /api/v1/user/measurement/:type --> Hackathon_Backend/api/handlers.GetMeasurementByType (4 handlers)
+[GIN-debug] GET    /api/v1/user/allMeasurement/:date --> Hackathon_Backend/api/handlers.GetAllMeasurementByDate (4 handlers)
+[GIN-debug] GET    /api/v1/user/allMeasurementOfDate/:date --> Hackathon_Backend/api/handlers.GetAllMeasurementOfDate (4 handlers)
+[GIN-debug] POST   /api/v1/user/upload       --> Hackathon_Backend/api/handlers.UploadFile (4 handlers)
+[GIN-debug] POST   /api/v1/user/download     --> Hackathon_Backend/api/handlers.DownloadFile (4 handlers)
+[GIN-debug] POST   /api/v1/user/visit        --> Hackathon_Backend/api/handlers.AddVisit (4 handlers)
+[GIN-debug] GET    /api/v1/user/allVisit     --> Hackathon_Backend/api/handlers.GetAllVisit (4 handlers)
+[GIN-debug] GET    /api/v1/user/share        --> Hackathon_Backend/api/handlers.ShareHealthCard (4 handlers)
+[GIN-debug] GET    /api/v1/user/verify/:code --> Hackathon_Backend/api/handlers.ShareVerify (4 handlers)
+[GIN-debug] GET    /api/v1/user/allHealthInsurance --> Hackathon_Backend/api/handlers.GetAllHealthInsurance (4 handlers)
+[GIN-debug] POST   /api/v1/user/addDonation  --> Hackathon_Backend/api/handlers.AddDonation (4 handlers)
+[GIN-debug] GET    /api/v1/user/getAllDonations --> Hackathon_Backend/api/handlers.GetAllDonations (3 handlers)
+[GIN-debug] GET    /api/v1/user/getAllDonationsUser --> Hackathon_Backend/api/handlers.GetAllDonationsByUser (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :7245
+
+
+```
+
+
 
 
 
