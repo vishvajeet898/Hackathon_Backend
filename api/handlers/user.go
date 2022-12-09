@@ -29,6 +29,8 @@ func AddBasicInfo(c *gin.Context) {
 
 func GetBasicInfo(c *gin.Context) {
 	res, err := user.GetBasicInfoByUserId(c)
+	fmt.Printf("Err %v\n", err)
+
 	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
 	c.JSON(statusCode, data)
 }
@@ -72,9 +74,23 @@ func UploadFile(c *gin.Context) {
 }
 
 func DownloadFile(c *gin.Context) {
-	res, err := user.DownloadFile(c)
-	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
-	c.JSON(statusCode, data)
+	file, name, _, err := user.DownloadFile(c)
+	if err != nil {
+		fmt.Printf("\n%v\n", err)
+		c.AbortWithStatusJSON(404, "Something went wrong")
+	}
+	c.FileAttachment(file, name)
+
+	//TODO create a cron job or clean api
+	/*err = utils.DeleteFiles(encFile)
+	if err != nil {
+		c.AbortWithStatusJSON(404,"Something went wrong")
+	}
+	err = utils.DeleteFiles(file)
+	if err != nil {
+		c.AbortWithStatusJSON(404,"Something went wrong")
+	}*/
+	//c.JSON(statusCode, data)
 }
 
 func AddVisit(c *gin.Context) {
@@ -87,6 +103,12 @@ func AddVisit(c *gin.Context) {
 
 func GetAllVisit(c *gin.Context) {
 	res, err := user.GetAllVisits(c)
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}
+
+func ShareHealthCard(c *gin.Context) {
+	res, err := user.ShareHealthCard(c)
 	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
 	c.JSON(statusCode, data)
 }

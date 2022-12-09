@@ -1,6 +1,7 @@
 package user
 
 import (
+	"Hackathon_Backend/api/middleware"
 	"Hackathon_Backend/model"
 	repository "Hackathon_Backend/repository/db"
 	"Hackathon_Backend/utils"
@@ -28,6 +29,13 @@ func SignUp(c *gin.Context) (interface{}, error) {
 	if err := validator.New().Struct(user); err != nil {
 		return nil, err
 	}
-	res, err := repository.CreateOne(&user)
-	return res, err
+	_, err = repository.CreateOne(&user)
+	if err != nil {
+		return nil, err
+	}
+
+	scope := []string{"normal"}
+	token, err := middleware.GenerateToken(user.UserId, "normal", scope)
+
+	return token, err
 }

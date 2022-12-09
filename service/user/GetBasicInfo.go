@@ -15,6 +15,12 @@ func GetBasicInfoByUserId(c *gin.Context) (interface{}, error) {
 	item := model.Basic_Info{
 		UserId: userId,
 	}
+
 	res, err := repository.GetOne(item)
+	if err != nil {
+		return nil, fmt.Errorf("Height format should be just 180  if 180cm integer")
+	}
+
+	res.Bmi = res.Weight / res.Height
 	return res, err
 }

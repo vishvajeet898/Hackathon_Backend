@@ -7,4 +7,5 @@ type User struct {
 	Password string `json:"password" gorm:"column:password" validate:"required,min=8"`
 	Phone    string `json:"phone" gorm:"column:phone"`
 	UserType string `json:"user_type" gorm:"column:user_type"`
+	Token    string `json:"token" gorm:"-"`
 }

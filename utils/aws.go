@@ -93,7 +93,7 @@ func S3FileDownloader(fileNames ...string) error {
 	wg.Wait()
 
 	for _, file := range fileNames {
-		res := IsFilePresent("./files/out/" + file)
+		res := IsFilePresent("./recordsTemp/download/" + file)
 		if !res {
 			return fmt.Errorf("%v File was not downloaded check Logs", file)
 		}

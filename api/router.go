@@ -28,9 +28,10 @@ func InitRouter() *gin.Engine {
 			users_api.GET("/allMeasurement/:date", middleware.TokenAuthMiddleware(), handler.GetAllMeasurementByDate)
 			users_api.GET("/allMeasurementOfDate/:date", middleware.TokenAuthMiddleware(), handler.GetAllMeasurementOfDate)
 			users_api.POST("/upload", middleware.TokenAuthMiddleware(), handler.UploadFile)
-			users_api.GET("/download", middleware.TokenAuthMiddleware(), handler.DownloadFile)
+			users_api.POST("/download", middleware.TokenAuthMiddleware(), handler.DownloadFile)
 			users_api.POST("/visit", middleware.TokenAuthMiddleware(), handler.AddVisit)
 			users_api.GET("/allVisit", middleware.TokenAuthMiddleware(), handler.GetAllVisit)
+			users_api.GET("/share", middleware.TokenAuthMiddleware(), handler.ShareHealthCard)
 		}
 
 	}

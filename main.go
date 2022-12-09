@@ -31,28 +31,6 @@ func main() {
 	gin.SetMode(gin.DebugMode)
 	routersInit.Run(port)
 
-	/*res := model.Aws_File{
-		AwsLink: "41e6779d-a856-4ec7-a5c2-cdaa7984f6c2",
-		Extension: "pdf",
-	}
-
-	err := godotenv.Load(".env")
-	if err != nil {
-		return
-	}
-
-	err = utils.S3FileDownloader(res.AwsLink)
-	if err != nil {
-		fmt.Printf("%v", err)
-		return 	}
-
-	err = utils.Decrypt("./recordsTemp/download/"+res.AwsLink, res.AwsLink+res.Extension)
-	if err != nil {
-		fmt.Printf("%v", err)
-		return
-	}*/
-	//c.FileAttachment("./recordsTemp/download/"+res.AwsLink+res.Extension,res.AwsLink+"."+res.Extension)
-
 	/*	utils.Encrypt("./test.pdf", "test")
 		utils.AwsFileUpload("./recordsTemp/upload/test.bin", "test.bin")
 
