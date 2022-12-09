@@ -470,6 +470,11 @@ response
 }
 ```
 
+
+Get All VISITS GET: https://hackathonbackend-production.up.railway.app/api/v1/user/allVisit
+
+
+
 ---
 
 # Health Insurance
@@ -503,5 +508,42 @@ Get All donations done by user  : GET https://hackathonbackend-production.up.rai
 Get All donations   : GET https://hackathonbackend-production.up.railway.app/api/v1/user/getAllDonations
 
 
+---
+
+# Share Profile
+
+Hare user profile  : GET https://hackathonbackend-production.up.railway.app/api/v1/user/share
 
 
+Verify( ALL PUBLIC PROFILE) GET: https://hackathonbackend-production.up.railway.app/api/v1/user/share/verify/27ea
+type sensitive code
+
+
+
+
+ALL API ENDPOINTS
+
+```golang
+users_api := v1.Group("/user/")
+		{
+			users_api.POST("/SignUp", handler.SignUp)
+			users_api.POST("/login", handler.SignIn)
+			users_api.POST("/basicInfo", middleware.TokenAuthMiddleware(), handler.AddBasicInfo)
+			users_api.GET("/basicInfo", middleware.TokenAuthMiddleware(), handler.GetBasicInfo)
+			users_api.PUT("/basicInfo", middleware.TokenAuthMiddleware(), handler.UpdateBasicInfo)
+			users_api.POST("/measurement", middleware.TokenAuthMiddleware(), handler.AddMeasurement)
+			users_api.GET("/measurement/:type", middleware.TokenAuthMiddleware(), handler.GetMeasurementByType)
+			users_api.GET("/allMeasurement/:date", middleware.TokenAuthMiddleware(), handler.GetAllMeasurementByDate)
+			users_api.GET("/allMeasurementOfDate/:date", middleware.TokenAuthMiddleware(), handler.GetAllMeasurementOfDate)
+			users_api.POST("/upload", middleware.TokenAuthMiddleware(), handler.UploadFile)
+			users_api.POST("/download", middleware.TokenAuthMiddleware(), handler.DownloadFile)
+			users_api.POST("/visit", middleware.TokenAuthMiddleware(), handler.AddVisit)
+			users_api.GET("/allVisit", middleware.TokenAuthMiddleware(), handler.GetAllVisit)
+			users_api.GET("/share", middleware.TokenAuthMiddleware(), handler.ShareHealthCard)
+			users_api.GET("/verify/:code", middleware.TokenAuthMiddleware(), handler.ShareVerify)
+			users_api.GET("/allHealthInsurance", middleware.TokenAuthMiddleware(), handler.GetAllHealthInsurance)
+			users_api.POST("/addDonation", middleware.TokenAuthMiddleware(), handler.AddDonation)
+			users_api.GET("/getAllDonations", handler.GetAllDonations)
+			users_api.GET("/getAllDonationsUser", middleware.TokenAuthMiddleware(), handler.GetAllDonationsByUser)
+		}
+  ```
