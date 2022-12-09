@@ -427,7 +427,7 @@ value = file to be uploaded
 ```
 
 ---
-#Visits
+# Visits
 Create Visit of User : POST https://hackathonbackend-production.up.railway.app/api/v1/user/visit
 ```json
 Request 
@@ -472,7 +472,7 @@ response
 
 ---
 
-#Health Insurance
+# Health Insurance
 
 Get All Health Isurances : GET https://hackathonbackend-production.up.railway.app/api/v1/user/allHealthInsurance
 ```json
@@ -482,7 +482,7 @@ Auth type : Breare token (JWT)
 
 ---
 
-#Donations
+# Donations
 
 Add 1 Donation of drug : POST  https://hackathonbackend-production.up.railway.app/api/v1/user/addDonation
 
