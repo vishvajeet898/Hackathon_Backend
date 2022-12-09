@@ -37,6 +37,8 @@ func GetBasicInfo(c *gin.Context) {
 
 func UpdateBasicInfo(c *gin.Context) {
 	res, err := user.UpdateBasicInfo(c)
+	fmt.Printf("Err %v\n", err)
+
 	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
 	c.JSON(statusCode, data)
 }
@@ -109,6 +111,30 @@ func GetAllVisit(c *gin.Context) {
 
 func ShareHealthCard(c *gin.Context) {
 	res, err := user.ShareHealthCard(c)
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}
+
+func GetAllHealthInsurance(c *gin.Context) {
+	res, err := user.GetAllHealthInsurance(c)
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}
+
+func AddDonation(c *gin.Context) {
+	res, err := user.AddDonation(c)
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}
+
+func GetAllDonations(c *gin.Context) {
+	res, err := user.GetAllDonations(c)
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}
+
+func GetAllDonationsByUser(c *gin.Context) {
+	res, err := user.GetAllDonationsByUser(c)
 	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
 	c.JSON(statusCode, data)
 }
