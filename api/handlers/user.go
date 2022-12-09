@@ -143,3 +143,17 @@ func ShareVerify(c *gin.Context) {
 	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
 	c.JSON(statusCode, data)
 }
+
+func GetAllPendingDonations(c *gin.Context) {
+	res, err := user.GetAllPendingDonationsByUser(c)
+	fmt.Printf("Err %v\n", err)
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}
+
+func ClearDownloads(c *gin.Context) {
+	res, err := user.Clear(c)
+	fmt.Printf("Err %v\n", err)
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}
