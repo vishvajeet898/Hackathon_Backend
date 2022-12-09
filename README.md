@@ -34,16 +34,8 @@ Sign Up json paylod
 }
 
 response 
-
 {
-    "data": {
-        "user_id": "191f99c6-9ee0-4740-8a53-43134dbda273",
-        "name": "Vishwajeet",
-        "email": "Vishvajeet878@gmail.com",
-        "password": "$2a$10$qFTgZQ8Fhk6HKQjbiK5.cuCL48bN7b8qBfLRRuKc4x9CNA60CkMbu",
-        "phone": "8707405904",
-        "user_type": "normal"
-    },
+    "data": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3N2ZiN2UyNy1lNzAwLTRlYWQtYTU2OC04OTc0N2JjYzVkNjgiLCJ1c2VyVHlwZSI6Im5vcm1hbCIsImV4cCI6MTY3MDc0NzYyNX0.klu0A_TqTxIuRQwehtoqhd5ZC-a_sZyqOC_jR3y1naE",
     "internal_response_code": 0,
     "message": "Success"
 }
@@ -77,11 +69,14 @@ Request
 Auth type : Breare token (JWT)
 {
     "age":21,
-    "height":"5'12",
+    "height":190,
     "sex":"M",
     "blood_group":"A+",
     "weight":72,
-    "allergies":["pollen","rubber"]
+    "allergies":["pollen","rubber"],
+    "diseases":["ED","Insomania"],
+    "pregnant":false,
+    "insulin" : 23
 }
 
 Response
@@ -112,10 +107,10 @@ Auth type : Breare token (JWT)
 Response
 {
     "data": {
-        "basic_id": "e212783e-ccd0-4a37-8c48-7117f3372f12",
-        "user_id": "0f47607c-a818-404d-9b30-4a633c8318cb",
+        "basic_id": "6dfc9fe8-0d1a-4166-a287-7cce7fb75fc6",
+        "user_id": "8d8ff9e8-79f7-40e2-8b96-adc87cf566d2",
         "age": 21,
-        "height": "5'12",
+        "height": 190,
         "sex": "M",
         "blood_group": "A+",
         "weight": 72,
@@ -126,7 +121,10 @@ Response
         "diseases": [
             "ED",
             "Insomania"
-        ]
+        ],
+        "pregnant": false,
+        "bmi": 0,
+        "insulin": 23
     },
     "internal_response_code": 0,
     "message": "Success"
