@@ -37,7 +37,7 @@ func InitRouter() *gin.Engine {
 			users_api.POST("/addDonation", middleware.TokenAuthMiddleware(), handler.AddDonation)
 			users_api.GET("/getAllDonations", handler.GetAllDonations)
 			users_api.GET("/getAllDonationsUser", middleware.TokenAuthMiddleware(), handler.GetAllDonationsByUser)
-			users_api.GET("/getAllPendingDonationsUser", middleware.TokenAuthMiddleware(), handler.GetAllPendingDonations)
+			users_api.GET("/getAllPendingDonationsUser", handler.GetAllPendingDonations)
 			users_api.GET("/clear", handler.ClearDownloads)
 		}
 
