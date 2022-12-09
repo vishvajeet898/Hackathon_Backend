@@ -523,32 +523,27 @@ type sensitive code
 
 ALL API ENDPOINTS
 
-
-[GIN-debug] POST   /api/v1/user/SignUp       --> Hackathon_Backend/api/handlers.SignUp (3 handlers)
-[GIN-debug] POST   /api/v1/user/login        --> Hackathon_Backend/api/handlers.SignIn (3 handlers)
-[GIN-debug] POST   /api/v1/user/basicInfo    --> Hackathon_Backend/api/handlers.AddBasicInfo (4 handlers)
-[GIN-debug] GET    /api/v1/user/basicInfo    --> Hackathon_Backend/api/handlers.GetBasicInfo (4 handlers)
-[GIN-debug] PUT    /api/v1/user/basicInfo    --> Hackathon_Backend/api/handlers.UpdateBasicInfo (4 handlers)
-[GIN-debug] POST   /api/v1/user/measurement  --> Hackathon_Backend/api/handlers.AddMeasurement (4 handlers)
-[GIN-debug] GET    /api/v1/user/measurement/:type --> Hackathon_Backend/api/handlers.GetMeasurementByType (4 handlers)
-[GIN-debug] GET    /api/v1/user/allMeasurement/:date --> Hackathon_Backend/api/handlers.GetAllMeasurementByDate (4 handlers)
-[GIN-debug] GET    /api/v1/user/allMeasurementOfDate/:date --> Hackathon_Backend/api/handlers.GetAllMeasurementOfDate (4 handlers)
-[GIN-debug] POST   /api/v1/user/upload       --> Hackathon_Backend/api/handlers.UploadFile (4 handlers)
-[GIN-debug] POST   /api/v1/user/download     --> Hackathon_Backend/api/handlers.DownloadFile (4 handlers)
-[GIN-debug] POST   /api/v1/user/visit        --> Hackathon_Backend/api/handlers.AddVisit (4 handlers)
-[GIN-debug] GET    /api/v1/user/allVisit     --> Hackathon_Backend/api/handlers.GetAllVisit (4 handlers)
-[GIN-debug] GET    /api/v1/user/share        --> Hackathon_Backend/api/handlers.ShareHealthCard (4 handlers)
-[GIN-debug] GET    /api/v1/user/verify/:code --> Hackathon_Backend/api/handlers.ShareVerify (4 handlers)
-[GIN-debug] GET    /api/v1/user/allHealthInsurance --> Hackathon_Backend/api/handlers.GetAllHealthInsurance (4 handlers)
-[GIN-debug] POST   /api/v1/user/addDonation  --> Hackathon_Backend/api/handlers.AddDonation (4 handlers)
-[GIN-debug] GET    /api/v1/user/getAllDonations --> Hackathon_Backend/api/handlers.GetAllDonations (3 handlers)
-[GIN-debug] GET    /api/v1/user/getAllDonationsUser --> Hackathon_Backend/api/handlers.GetAllDonationsByUser (4 handlers)
-[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
-Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
-[GIN-debug] Listening and serving HTTP on :7245
-
-
-
-
-
-
+```golang
+users_api := v1.Group("/user/")
+		{
+			users_api.POST("/SignUp", handler.SignUp)
+			users_api.POST("/login", handler.SignIn)
+			users_api.POST("/basicInfo", middleware.TokenAuthMiddleware(), handler.AddBasicInfo)
+			users_api.GET("/basicInfo", middleware.TokenAuthMiddleware(), handler.GetBasicInfo)
+			users_api.PUT("/basicInfo", middleware.TokenAuthMiddleware(), handler.UpdateBasicInfo)
+			users_api.POST("/measurement", middleware.TokenAuthMiddleware(), handler.AddMeasurement)
+			users_api.GET("/measurement/:type", middleware.TokenAuthMiddleware(), handler.GetMeasurementByType)
+			users_api.GET("/allMeasurement/:date", middleware.TokenAuthMiddleware(), handler.GetAllMeasurementByDate)
+			users_api.GET("/allMeasurementOfDate/:date", middleware.TokenAuthMiddleware(), handler.GetAllMeasurementOfDate)
+			users_api.POST("/upload", middleware.TokenAuthMiddleware(), handler.UploadFile)
+			users_api.POST("/download", middleware.TokenAuthMiddleware(), handler.DownloadFile)
+			users_api.POST("/visit", middleware.TokenAuthMiddleware(), handler.AddVisit)
+			users_api.GET("/allVisit", middleware.TokenAuthMiddleware(), handler.GetAllVisit)
+			users_api.GET("/share", middleware.TokenAuthMiddleware(), handler.ShareHealthCard)
+			users_api.GET("/verify/:code", middleware.TokenAuthMiddleware(), handler.ShareVerify)
+			users_api.GET("/allHealthInsurance", middleware.TokenAuthMiddleware(), handler.GetAllHealthInsurance)
+			users_api.POST("/addDonation", middleware.TokenAuthMiddleware(), handler.AddDonation)
+			users_api.GET("/getAllDonations", handler.GetAllDonations)
+			users_api.GET("/getAllDonationsUser", middleware.TokenAuthMiddleware(), handler.GetAllDonationsByUser)
+		}
+  ```
