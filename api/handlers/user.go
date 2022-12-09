@@ -157,3 +157,10 @@ func ClearDownloads(c *gin.Context) {
 	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
 	c.JSON(statusCode, data)
 }
+
+func UpdateDonation(c *gin.Context) {
+	res, err := user.UpdateDonation(c)
+	fmt.Printf("Err %v\n", err)
+	statusCode, data := utils.FormatResponseMessage(res, err, http.StatusOK)
+	c.JSON(statusCode, data)
+}
