@@ -34,16 +34,8 @@ Sign Up json paylod
 }
 
 response 
-
 {
-    "data": {
-        "user_id": "191f99c6-9ee0-4740-8a53-43134dbda273",
-        "name": "Vishwajeet",
-        "email": "Vishvajeet878@gmail.com",
-        "password": "$2a$10$qFTgZQ8Fhk6HKQjbiK5.cuCL48bN7b8qBfLRRuKc4x9CNA60CkMbu",
-        "phone": "8707405904",
-        "user_type": "normal"
-    },
+    "data": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3N2ZiN2UyNy1lNzAwLTRlYWQtYTU2OC04OTc0N2JjYzVkNjgiLCJ1c2VyVHlwZSI6Im5vcm1hbCIsImV4cCI6MTY3MDc0NzYyNX0.klu0A_TqTxIuRQwehtoqhd5ZC-a_sZyqOC_jR3y1naE",
     "internal_response_code": 0,
     "message": "Success"
 }
