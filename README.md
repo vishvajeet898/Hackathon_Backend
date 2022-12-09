@@ -522,7 +522,8 @@ type sensitive code
 
 
 ALL API ENDPOINTS
-```json
+
+
 [GIN-debug] POST   /api/v1/user/SignUp       --> Hackathon_Backend/api/handlers.SignUp (3 handlers)
 [GIN-debug] POST   /api/v1/user/login        --> Hackathon_Backend/api/handlers.SignIn (3 handlers)
 [GIN-debug] POST   /api/v1/user/basicInfo    --> Hackathon_Backend/api/handlers.AddBasicInfo (4 handlers)
@@ -546,8 +547,6 @@ ALL API ENDPOINTS
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :7245
 
-
-```
 
 
 
