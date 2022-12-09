@@ -469,3 +469,39 @@ response
     "message": "Success"
 }
 ```
+
+---
+
+#Health Insurance
+
+Get All Health Isurances : GET https://hackathonbackend-production.up.railway.app/api/v1/user/allHealthInsurance
+```json
+Request 
+Auth type : Breare token (JWT)
+```
+
+---
+
+#Donations
+
+Add 1 Donation of drug : POST  https://hackathonbackend-production.up.railway.app/api/v1/user/addDonation
+
+```json
+Request 
+Auth type : Breare token (JWT)
+{
+    "drug_name":"Levocit 360",
+    "pictures":["drug pic aws-lnk-onupload","precription aws-lnk-onupload"],
+    "expire_date" : "01/01/2022 ",
+    "category":"General fever"
+}
+
+```
+
+Get All donations done by user  : GET https://hackathonbackend-production.up.railway.app/api/v1/user/getAllDonationsUser
+
+Get All donations   : GET https://hackathonbackend-production.up.railway.app/api/v1/user/getAllDonations
+
+
+
+
