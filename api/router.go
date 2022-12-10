@@ -32,7 +32,7 @@ func InitRouter() *gin.Engine {
 			users_api.POST("/visit", middleware.TokenAuthMiddleware(), handler.AddVisit)
 			users_api.GET("/allVisit", middleware.TokenAuthMiddleware(), handler.GetAllVisit)
 			users_api.GET("/share", middleware.TokenAuthMiddleware(), handler.ShareHealthCard)
-			users_api.GET("/verify/:code", middleware.TokenAuthMiddleware(), handler.ShareVerify)
+			users_api.GET("/verify/:code", handler.ShareVerify)
 			users_api.GET("/allHealthInsurance", middleware.TokenAuthMiddleware(), handler.GetAllHealthInsurance)
 			users_api.POST("/addDonation", middleware.TokenAuthMiddleware(), handler.AddDonation)
 			users_api.GET("/getAllDonations", handler.GetAllDonations)
