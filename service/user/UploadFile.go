@@ -36,18 +36,19 @@ func UploadFile(c *gin.Context) (interface{}, error) {
 		return nil, err
 	}
 
-	err = utils.Encrypt("./recordsTemp/upload/"+newFileName+extension, newFileName)
+	/*err = utils.Encrypt("./recordsTemp/upload/"+newFileName+extension, newFileName)
+	if err != nil {
+		return nil, err
+	}*/
+	err, fillLocation, cid := utils.UploadFile("./recordsTemp/upload/"+newFileName+extension, newFileName)
 	if err != nil {
 		return nil, err
 	}
-	err = utils.AwsFileUpload("./recordsTemp/upload/"+newFileName+".bin", newFileName)
-	if err != nil {
-		return nil, err
-	}
+	fmt.Printf("File -> ", cid)
 
 	record := model.Aws_File{
 		UserId:    userId,
-		AwsLink:   newFileName,
+		AwsLink:   fillLocation,
 		FileId:    uuid.New().String(),
 		Extension: extension,
 	}
@@ -60,14 +61,14 @@ func UploadFile(c *gin.Context) (interface{}, error) {
 		return nil, err
 	}
 
-	err = utils.DeleteFiles("./recordsTemp/upload/" + newFileName + extension)
-	if err != nil {
-		return nil, err
-	}
-	err = utils.DeleteFiles("./recordsTemp/upload/" + newFileName + ".bin")
-	if err != nil {
-		return nil, err
-	}
+	/*	err = utils.DeleteFiles("./recordsTemp/upload/" + newFileName + extension)
+		if err != nil {
+			return nil, err
+		}
+		err = utils.DeleteFiles("./recordsTemp/upload/" + newFileName + ".bin")
+		if err != nil {
+			return nil, err
+		}*/
 	return res, nil
 	/*	return "Your file has been successfully uploaded.", nil
 	 */

@@ -3,6 +3,7 @@ package main
 import (
 	"Hackathon_Backend/api"
 	repository "Hackathon_Backend/repository/db"
+	"Hackathon_Backend/utils"
 	"fmt"
 	_ "github.com/aws/aws-sdk-go-v2/config"
 	"github.com/gin-gonic/gin"
@@ -17,6 +18,13 @@ func main() {
 	if err != nil {
 		return
 	}
+
+	err = utils.SetupFileStructure()
+	if err != nil {
+		print(err.Error())
+		return
+	}
+
 	dbUrl := os.Getenv("DB_URL")
 	dbName := os.Getenv("DB_NAME")
 	dbPassword := os.Getenv("DB_PASSWORD")
@@ -30,7 +38,15 @@ func main() {
 	routersInit := api.InitRouter()
 	gin.SetMode(gin.DebugMode)
 	routersInit.Run(port)
+	/*
+		err, s, cidString := utils.UploadFile("./recordsTemp/upload/key", "key")
+		if err != nil {
+			return
+		}
 
+		fmt.Printf("%v", s)
+		fmt.Printf("\n%v", cidString)
+	*/
 	/*	utils.Encrypt("./test.pdf", "test")
 		utils.AwsFileUpload("./recordsTemp/upload/test.bin", "test.bin")
 
